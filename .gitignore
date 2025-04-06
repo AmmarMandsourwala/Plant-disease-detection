@@ -11,5 +11,3 @@ __pycache__/
 *.ckpt
 *.pth
 
-# Ignore large notebook outputs
-*.ipynb
