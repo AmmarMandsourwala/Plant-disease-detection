@@ -1,0 +1,15 @@
+# Ignore dataset folders
+dataset/
+__pycache__/
+.ipynb_checkpoints/
+*.jpg
+*.JPG
+*.jpeg
+*.png
+
+# Ignore checkpoints
+*.ckpt
+*.pth
+
+# Ignore large notebook outputs
+*.ipynb
