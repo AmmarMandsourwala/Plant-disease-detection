@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}Plant Disease Detection{% endblock %}
+
+{% block hero %}
+<section class="hero text-center">
+    <div class="container">
+        <h1>Plant Disease Detection</h1>
+        <p>Upload a photo of your plant and get instant disease identification with AI-powered solutions for treatment.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                Upload Plant Image
+            </div>
+            <div class="card-body">
+                <form id="upload-form" action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-icon">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                        </div>
+                        <h4>Drag and drop or click to upload</h4>
+                        <p class="text-muted">Upload a clear image of the plant leaf for best results</p>
+                        <input type="file" name="file" id="file-input" class="d-none" accept="image/*" required>
+                    </div>
+                    
+                    <div id="preview-container" class="text-center mb-4" style="display: none;">
+                        <h5>Preview</h5>
+                        <img id="preview-image" class="preview-image mb-3" src="" alt="Preview">
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="button" id="change-image" class="btn btn-outline-primary">Change Image</button>
+                            <button type="submit" class="btn btn-primary">Analyze Plant</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                How It Works
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <div class="p-3">
+                            <div class="fs-1 mb-2 text-primary">1</div>
+                            <h5>Upload Image</h5>
+                            <p class="text-muted">Take a clear photo of the affected plant part</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <div class="p-3">
+                            <div class="fs-1 mb-2 text-primary">2</div>
+                            <h5>AI Analysis</h5>
+                            <p class="text-muted">Our AI model identifies the disease</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3">
+                            <div class="fs-1 mb-2 text-primary">3</div>
+                            <h5>Get Solutions</h5>
+                            <p class="text-muted">Receive detailed treatment recommendations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const uploadArea = document.getElementById('upload-area');
+        const fileInput = document.getElementById('file-input');
+        const previewContainer = document.getElementById('preview-container');
+        const previewImage = document.getElementById('preview-image');
+        const changeImageBtn = document.getElementById('change-image');
+        
+        // Click on upload area to trigger file input
+        uploadArea.addEventListener('click', function() {
+            fileInput.click();
+        });
+        
+        // Handle drag and drop
+        uploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            uploadArea.classList.add('bg-light');
+        });
+        
+        uploadArea.addEventListener('dragleave', function() {
+            uploadArea.classList.remove('bg-light');
+        });
+        
+        uploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('bg-light');
+            
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                handleFileSelect();
+            }
+        });
+        
+        // Handle file selection
+        fileInput.addEventListener('change', handleFileSelect);
+        
+        function handleFileSelect() {
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    uploadArea.style.display = 'none';
+                    previewContainer.style.display = 'block';
+                };
+                
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+        
+        // Change image button
+        changeImageBtn.addEventListener('click', function() {
+            uploadArea.style.display = 'block';
+            previewContainer.style.display = 'none';
+            fileInput.value = '';
+        });
+    });
+</script>
+{% endblock %}
