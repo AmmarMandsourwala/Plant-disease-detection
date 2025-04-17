@@ -17,16 +17,9 @@
 
 ## ⚙️ Tech Stack
 
-| Frontend   | Backend | AI/ML        | 
+| Frontend   | Backend | AI/ML        |
 |------------|---------|--------------|
 | HTML, CSS  | Flask   | TensorFlow, Keras, OpenCV | 
-
----
-
-## 🖥️ Live Demo
-
-🚧 *Coming Soon!*  
-Want to see it live? Stay tuned – deployment in progress!
 
 ---
 
@@ -36,8 +29,9 @@ Want to see it live? Stay tuned – deployment in progress!
 
 1. 📥 Upload an image of a plant leaf  
 2. 🧠 The model analyzes the image using a trained CNN  
-3. 📊 Get the prediction – whether it's healthy or diseased  
-4. ✅ Simple, fast, and easy to use!
+3. 📊 Get the prediction – whether it's healthy or diseased
+4. 💡 Also get treatment steps and prevention measures
+5. ✅ Simple, fast, and easy to use!
 
 ---
 
