@@ -17,9 +17,9 @@
 
 ## ⚙️ Tech Stack
 
-| Frontend   | Backend | AI/ML        | Deployment (optional) |
-|------------|---------|--------------|------------------------|
-| HTML, CSS  | Flask   | TensorFlow, Keras, OpenCV | Render / Heroku (planned) |
+| Frontend   | Backend | AI/ML        | 
+|------------|---------|--------------|
+| HTML, CSS  | Flask   | TensorFlow, Keras, OpenCV | 
 
 ---
 
@@ -29,14 +29,6 @@
 Want to see it live? Stay tuned – deployment in progress!
 
 ---
-
-## 📸 Sneak Peek
-
-<p align="center">
-  <img src="https://via.placeholder.com/600x300.png?text=Upload+Page+Screenshot" alt="Upload Page" />
-  <br />
-  <em>Leaf Upload Page – Clean and simple UI built with Flask</em>
-</p>
 
 ---
 
