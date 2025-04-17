@@ -59,7 +59,7 @@ def preprocess_image(img_path):
 # Function to get disease information from Groq/Llama4
 def get_disease_info_from_groq(disease_name):
     # Replace with your Groq API key and endpoint
-    groq_api_key = "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" 
+    groq_api_key = "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" 
     groq_api_url = "https://api.groq.com/openai/v1/chat/completions"
     
     # Remove underscores and format disease name
